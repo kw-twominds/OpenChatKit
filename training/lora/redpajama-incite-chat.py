@@ -32,24 +32,24 @@ def main(
     wandb_log_model: str = "",  # options: false | true
 ):
     print(
-        f"\n================================================================================n"
+        f"\n================================================================================\n"
         f"Training RedPajama model with params:\n"
         f"================================================================================\n"
-        f"model_name: {model_name}\n"
-        f"base_model: {base_model}\n"
-        f"dataset_path: {dataset_path}\n"
-        f"batch_size: {batch_size}\n"
-        f"micro_batch_size: {micro_batch_size}\n"
-        f"num_epochs: {num_epochs}\n"
-        f"learning_rate: {learning_rate}\n"
-        f"lora_r: {lora_r}\n"
-        f"lora_alpha: {lora_alpha}\n"
-        f"lora_dropout: {lora_dropout}\n"
-        f"lora_target_modules: {lora_target_modules}\n"
-        f"wandb_project: {wandb_project}\n"
-        f"wandb_run_name: {wandb_run_name}\n"
-        f"wandb_watch: {wandb_watch}\n"
-        f"wandb_log_model: {wandb_log_model}\n"
+        f"model_name:           {model_name}\n"
+        f"base_model:           {base_model}\n"
+        f"dataset_path:         {dataset_path}\n"
+        f"batch_size:           {batch_size}\n"
+        f"micro_batch_size:     {micro_batch_size}\n"
+        f"num_epochs:           {num_epochs}\n"
+        f"learning_rate:        {learning_rate}\n"
+        f"lora_r:               {lora_r}\n"
+        f"lora_alpha:           {lora_alpha}\n"
+        f"lora_dropout:         {lora_dropout}\n"
+        f"lora_target_modules:  {lora_target_modules}\n"
+        f"wandb_project:        {wandb_project}\n"
+        f"wandb_run_name:       {wandb_run_name}\n"
+        f"wandb_watch:          {wandb_watch}\n"
+        f"wandb_log_model:      {wandb_log_model}\n"
         f"================================================================================\n"
     )
     gradient_accumulation_steps = batch_size // micro_batch_size
@@ -84,7 +84,7 @@ def main(
         param.data = param.data.to(torch.float32)
 
     model.gradient_checkpointing_enable()  # reduce number of stored activations
-    #model.enable_input_require_grads()
+    model.enable_input_require_grads()
 
     config = LoraConfig(
         r=lora_r,
