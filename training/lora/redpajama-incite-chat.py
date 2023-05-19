@@ -12,7 +12,7 @@ from transformers import AutoTokenizer, AutoConfig, AutoModelForCausalLM
 
 # this script should take around 14GB VRAM
 def main(
-    model_name: str = "redpajama-incite-chat-3b-sample-lowrank",
+    model_name: str = "redpajama-incite-chat-3b-lowrank",
     dataset_path: str = "data/OIG-chip2/unified_chip2.jsonl",
     base_model: str = "togethercomputer/RedPajama-INCITE-Chat-3B-v1",
     # training hyperparams
